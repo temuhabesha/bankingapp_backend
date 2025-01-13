@@ -1,29 +1,24 @@
-// import the module starting point
+// module importing starting point
 const express = require('express')
-const dotenv = require('dotenv')
-dotenv.config()
-const userrouts = require('./routs/customerrouts')
-const dbconnection = require('./config/db')
+const db_connection = require('./config/db')
+const customerRoutes = require('./routs/customerrouts')
 const cors = require('cors')
-// import the module ending point
+// module importing ending point
 
-// server creating starting point by express
 const app = express();
-// server creating ending point by express
-
-//the middleware starting point
+const PORT = 3001;
+// middleware starting point
 app.use(express.json())
 app.use(cors())
-app.use('/',userrouts)
-//the middleware ending point
+app.use('/',customerRoutes)
+// middleware ending point
 
 
-//dotenv file starting point
-const PORT = process.env.PORT
-//dotenv file ending point
-
-//the server listen staring point
 app.listen(PORT,(err)=>{
-    console.log('the server is run in port number 5001')
+    if(!err){
+        return console.log(`the server is running in port number ${PORT}`)
+    }
+    else{
+        console.log(err)
+    }
 })
-//the server listen ending point
