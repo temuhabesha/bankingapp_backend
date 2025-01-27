@@ -25,6 +25,7 @@ async function register(req,res){
     await dbconnection.query('INSERT INTO customer (fullname,fatherfullname,motherfullname,nationality,gender,dateofbirth,mritalstatus,region,regioncity,zone,Woreda,Kebele,mobile,employditail,accounttype,username,email,password) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',[fullname,fathername,mothername,Nationality,Gender,dateofbirth,mritalstatus,Region,regioncity,zone,Woreda,Kebele,Mobile,employdetail,accounttype,username,email,hashedpassword])
     const account = Math.floor(10000000 + Math.random() * 90000000)
     const [user] = await dbconnection.query('SELECT acount_number,username FROM accounts WHERE username = ?',[username])
+    console.log(user)
     if(user.length>0){
       return res.status(400).json({msg:"the user already have an account"})
     }
