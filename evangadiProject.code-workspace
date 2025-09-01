@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../../evangadiProject"
+		},
+		{
+			"path": "../../projectinSAT"
+		},
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../jsclass"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "jsclass"
+	}
+}
